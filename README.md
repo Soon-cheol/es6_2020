@@ -17,7 +17,7 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 
 ---
 
-1주차 (20.06.03)
+1주차 (20.06.10)
 
 - 1장 ECMAScript
 - 2장 자바스크립트 개발도구 (ES Lint, Prettier, Babel)
