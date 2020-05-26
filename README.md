@@ -9,9 +9,9 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 ### 진행
 
 - 인원 : 최순철, 박지원, 한슬기, 이다솜, 이정민, 이상원, 
-- 시간 : 오후 8시 ~ 11시
+- 시간 : 오후 7시 ~ 10시
 - 일자 : 매주 수요일
-- 장소 : <a href="https://spacecloud.kr/space/3476" target="_blank">강남 윙스터디</a>
+- 장소 : ~~<a href="https://spacecloud.kr/space/3476" target="_blank">강남 윙스터디</a>~~
 
 ### 과정
 
