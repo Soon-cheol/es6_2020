@@ -26,7 +26,7 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 
 ---
 
-2주차 
+2주차
 
 - 5장 표현식과 연산자
 - 6장 함수
@@ -34,14 +34,14 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 
 ---
 
-3주차 
+3주차
 
 - 8장 배열과 배열 처리
-- 9장 객체와 객체지향 프로그래밍 
+- 9장 객체와 객체지향 프로그래밍
 
 ---
 
-4주차 
+4주차
 
 - 10장 맵과 셋
 - 11장 예외와 에러 처리
@@ -73,4 +73,8 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 
 8주차
 
-- 20장 Node
+- 20장 Node / 웹팩 / 바벨
+
+---
+
+Vue 기초 / Vue 문법 / Vue-Cli / Nuxt / Vue 프로젝트
