@@ -2,8 +2,6 @@
 
 ## 1장 ECMAScript
 
----
-
 ### 1-1 ECMAScript 탄생
 
 자바스크립트는 1990년대 Netscape 회사의 Brendan Eich 라는 사람에 의해 최초 개발되었다.<br />
@@ -13,7 +11,12 @@
 비영리 표준 기구에 제출하였고 표준에 대한 작업을 ECMA-262란 이름으로 1996년 11월에 시작해 1997년 6월에<br />
 채택되었다.
 
-<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" target="_blank">관련영상</a>
+```
+Ecma 인터내셔널의 SCMA-262 기술 규격에 의해 정의된 그리고 표준화 된 스크립트 프로그래밍 언어
+```
+
+<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" target="_blank">관련영상</a><br />
+<a href="https://kangax.github.io/compat-table/es6/" target="_blank">브라우저 지원 현황</a>
 
 ---
 
@@ -62,3 +65,14 @@ ES 8 (2017)
 ---
 
 ## 2장 자바스크립트 개발도구
+
+1. <a href="https://nodejs.org/ko/" target="_blank">Node 설치</a>
+
+- node.js는 JavaScript 기반으로 구성된 서버 사이드 서비스를 JavaScript로 구현할 수 있게 만든 런타임이고,<br />
+  npm은 node.js 기반의 모듈을 모아둔 집합 저장소이다. npm은 Node Package Manager 또는 Node Package Modules라고도 한다.
+
+2. ES Lint
+
+```
+npx eslint app.js
+```
