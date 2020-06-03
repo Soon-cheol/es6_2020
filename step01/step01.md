@@ -80,3 +80,5 @@ npx eslint app.js
 ```
 eslint --init
 ```
+
+3. Prettier
