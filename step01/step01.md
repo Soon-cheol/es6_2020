@@ -76,3 +76,7 @@ ES 8 (2017)
 ```
 npx eslint app.js
 ```
+
+```
+eslint --init
+```
