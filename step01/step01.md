@@ -71,7 +71,7 @@ ES 8 (2017)
 - node.js는 JavaScript 기반으로 구성된 서버 사이드 서비스를 JavaScript로 구현할 수 있게 만든 런타임이고,<br />
   npm은 node.js 기반의 모듈을 모아둔 집합 저장소이다. npm은 Node Package Manager 또는 Node Package Modules라고도 한다.
 
-2. ES Lint
+2. ES Lint ( 문법검사 )
 
 ```
 npx eslint app.js
@@ -81,4 +81,67 @@ npx eslint app.js
 eslint --init
 ```
 
-3. Prettier
+3. Prettier ( 소스정리 )
+
+```
+{
+  "arrowParens": "avoid", // 화살표 함수 괄호 사용 방식
+  "bracketSpacing": false, // 객체 리터럴에서 괄호에 공백 삽입 여부
+  "endOfLine": "auto", // EoF 방식, OS별로 처리 방식이 다름
+  "htmlWhitespaceSensitivity": "css", // HTML 공백 감도 설정
+  "jsxBracketSameLine": false, // JSX의 마지막 `>`를 다음 줄로 내릴지 여부
+  "jsxSingleQuote": false, // JSX에 singe 쿼테이션 사용 여부
+  "printWidth": 80, //  줄 바꿈 할 폭 길이
+  "proseWrap": "preserve", // markdown 텍스트의 줄바꿈 방식 (v1.8.2)
+  "quoteProps": "as-needed" // 객체 속성에 쿼테이션 적용 방식
+  "semi": true, // 세미콜론 사용 여부
+  "singleQuote": true, // single 쿼테이션 사용 여부
+  "tabWidth": 2, // 탭 너비
+  "trailingComma": "all", // 여러 줄을 사용할 때, 후행 콤마 사용 방식
+  "useTabs": false, // 탭 사용 여부
+  "vueIndentScriptAndStyle": true, // Vue 파일의 script와 style 태그의 들여쓰기 여부 (v1.19.0)
+  "parser": '', // 사용할 parser를 지정, 자동으로 지정됨
+  "filepath": '', // parser를 유추할 수 있는 파일을 지정
+  "rangeStart": 0, // 포맷팅을 부분 적용할 파일의 시작 라인 지정
+  "rangeEnd": Infinity, // 포맷팅 부분 적용할 파일의 끝 라인 지정,
+  "requirePragma": false, // 파일 상단에 미리 정의된 주석을 작성하고 Pragma로 포맷팅 사용 여부 지정 (v1.8.0)
+  "insertPragma": false, // 미리 정의된 @format marker의 사용 여부 (v1.8.0)
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 200
+      }
+    }
+  ], // 특정 파일별로 옵션을 다르게 지정함, ESLint 방식 사
+}
+```
+
+4. <a href="https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Ces2015%2Creact%2Cstage-2%2Cenv&prettier=false&targets=&version=7.10.2&externalPlugins=" target="_blank">Babel</a>
+
+```
+let a = 3
+const test = (a,b) => a*b
+```
+
+```
+npm install --save-dev @babel/core @babel/cli
+npm install --save-dev @babel/preset-env
+npm install --save-dev @babel/plugin-proposal-class-properties
+```
+
+Babel을 사용하려면 @babel/preset-env을 설치해야 한다. @babel/preset-env은 함께 사용되어야 하는 Babel 플러그인을 모아 둔 것으로 Babel 프리셋이라고 부른다. Babel이 제공하는 공식 Babel 프리셋(Official Preset)은 아래와 같다.
+
+```
+- @babel/preset-env
+- @babel/preset-flow
+- @babel/preset-react
+- @babel/preset-typescript
+```
+
+@babel/preset-env 도 공식 프리셋의 하나이며 필요한 플러그인 들을 프로젝트 지원 환경에 맞춰서 동적으로 결정해 준다. 프로젝트 지원 환경은 Browserslist 형식으로 .browserslistrc 파일에 상세히 설정할 수 있다. 프로젝트 지원 환경 설정 작업을 생략하면 기본값으로 설정된다.
+
+```
+-w 타깃 폴더에 있는 모든 파일들의 변경을 감지하여 자동으로 트랜스파일한다. (--watch 옵션의 축약형)
+-d 트랜스파일링된 결과물이 저장될 폴더를 지정한다. (--out-dir 옵션의 축약형)
+```
