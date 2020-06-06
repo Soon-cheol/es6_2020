@@ -71,6 +71,22 @@ ES 8 (2017)
 - node.js는 JavaScript 기반으로 구성된 서버 사이드 서비스를 JavaScript로 구현할 수 있게 만든 런타임이고,<br />
   npm은 node.js 기반의 모듈을 모아둔 집합 저장소이다. npm은 Node Package Manager 또는 Node Package Modules라고도 한다.
 
+```
+npm install 명령어에는 지역(local) 설치와 전역(global) 설치 옵션이 있다. 옵션을 별도로 지정하지 않으면 지역으로 설치되며, 프로젝트 루트 디렉터리에 node_modules 디렉터리가 자동 생성되고 그 안에 패키지가 설치된다. 지역으로 설치된 패키지는 해당 프로젝트 내에서만 사용할 수 있다.
+
+전역에 패키지를 설치하려면 npm install 명령어에 -g 옵션을 지정한다. 전역으로 설치된 패키지는 전역에서 참조할 수 있다. 모든 프로젝트가 공통 사용하는 패키지는 지역으로 설치하지 않고 전역에 설치한다.
+
+전역에 설치된 패키지는 OS에 따라 설치 장소가 다르다.
+
+- macOS의 경우
+
+/usr/local/lib/node_modules
+
+- 윈도우의 경우
+
+c:\Users\%USERNAME%\AppData\Roaming\npm\node_modules
+```
+
 2. ES Lint ( 문법검사 )
 
 ```
@@ -119,9 +135,9 @@ eslint --init
 
 4. <a href="https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Ces2015%2Creact%2Cstage-2%2Cenv&prettier=false&targets=&version=7.10.2&externalPlugins=" target="_blank">Babel</a> (변환)
 
-```
-let a = 3
-const test = (a,b) => a*b
+```js
+let a = 3;
+const test = (a, b) => a * b;
 ```
 
 ```
@@ -146,7 +162,9 @@ Babel을 사용하려면 @babel/preset-env을 설치해야 한다. @babel/preset
 -d 트랜스파일링된 결과물이 저장될 폴더를 지정한다. (--out-dir 옵션의 축약형)
 ```
 
-5. webpack (번들)
+5. <a href="https://poiemaweb.com/es6-babel-webpack-2" target="_blank">webpack (번들)</a>
+
+<img src="https://poiemaweb.com/img/webpack.png">
 
 ```
 npm install --save-dev webpack webpack-cli
@@ -160,6 +178,50 @@ Promise, Object.assign, Array.from 등과 같이 ES5 이하로 대체할 수 없
 npm install @babel/polyfill
 ```
 
+node-sass는 node.js 환경에서 사용할 수 있는 Sass 라이브러리이다. 실제로 Sass를 css로 컴파일하는 것은 node-sass이다. style-loader, css-loader, sass-loader는 Webpack 플러그인이다.
+
 ```
 $ npm install node-sass style-loader css-loader sass-loader --save-dev
 ```
+
+---
+
+## 3장 리터럴과 변수, 상수, 데이터 타입
+
+### 3-1 선언자 식별자
+
+```js
+var(선언자) test(식별자)
+let(선언자) test(식별자)
+const(선언자) test(식별자)
+```
+
+- 식별자로 사용 가능한 문자는 알파벳, 숫자, 밑줄(\_), 달러 기호(\$) 이다.
+- 첫 글자로 숫자는 사용 불가능하다.
+- <a href="https://blog.sonim1.com/118" target="_blank">예약어</a>를 식별자로 사용할 수 없다.
+
+---
+
+### 3-2 변수 명명 규칙
+
+- 카멜 케이스
+
+  - newName, newNameCsc
+
+- 파스칼 케이스
+
+  - NewName, NewNameCsc
+
+- 스네이크 케이스
+
+  - new_name, new_name_csc
+
+번외 : <a href="https://webclub.tistory.com/263" target="_blank">BEM</a>
+
+---
+
+### 3-3 데이터 타입
+
+데이터 타입이란 숫자나 문자열처럼 변수에 저장하는 데이터의 종류를 이야기하며, C나 JAVA 등의 프로그래밍 언어에는 정수 타입 변수, 부동소수점 타입 변수 등이 있어서 그 변수의 타입과 일치하는 데이터만 저장할 수 있다.
+
+이처럼 변수에 타입이 있는 언어를 가르켜 <u>정적 언어 타입(static typed langeage)</u>
