@@ -129,7 +129,7 @@ eslint --init
         "printWidth": 200
       }
     }
-  ], // 특정 파일별로 옵션을 다르게 지정함, ESLint 방식 사
+  ], // 특정 파일별로 옵션을 다르게 지정함, ESLint 방식 사용
 }
 ```
 
@@ -138,6 +138,12 @@ eslint --init
 ```js
 let a = 3;
 const test = (a, b) => a * b;
+
+const { cat, dog, tiger, monkey = 'monkey' } = {
+  cat: 'CAT',
+  dog: 'DOG',
+  tiger: 'TIGER',
+};
 ```
 
 ```
@@ -222,6 +228,158 @@ const(선언자) test(식별자)
 
 ### 3-3 데이터 타입
 
-데이터 타입이란 숫자나 문자열처럼 변수에 저장하는 데이터의 종류를 이야기하며, C나 JAVA 등의 프로그래밍 언어에는 정수 타입 변수, 부동소수점 타입 변수 등이 있어서 그 변수의 타입과 일치하는 데이터만 저장할 수 있다.
+데이터 타입이란 숫자나 문자열처럼 변수에 저장하는 데이터의 종류를 이야기하며, C, C#, C++, Java 등의 프로그래밍 언어에는 정수 타입 변수, 부동소수점 타입 변수 등이 있어서 그 변수의 타입과 일치하는 데이터만 저장할 수 있다.
 
-이처럼 변수에 타입이 있는 언어를 가르켜 <u>정적 언어 타입(static typed langeage)</u>
+이처럼 변수에 타입이 있는 언어를 가르켜 <u>정적 언어 타입(static typed langeage)</u> 이라고 한다.
+
+```
+int num = 1; // 컴파일 성공
+float num2 = 1.03; // 컴파일 성공
+bool num3 = 1; // 컴파일 에러
+```
+
+정적 언어 타입과는 다르게 변수에 저장된 데이터 타입을 동적으로 바꿀 수 있는 언어를 가르켜 <u>동적 언어 타입(static typed langeage)</u>
+이라고 부르며 대표적으로 JavaScript, Ruby, Python, SmallTalk 등이 있다.
+
+#### 3-3-1 데이터 타입 분류
+
+```
+undefined : 변수가 정의되지 않거나 값이 없을 때
+number : 데이터 타입이 수일 때
+string : 데이터 타입이 문자열일 때
+boolean : 데이터 타입이 불리언일 때
+object : 데이터 타입이 함수, 배열 등 객체일 때
+function : 변수의 값이 함수일 때
+symbol : 데이터 타입이 심볼일 때
+```
+
+- 원시타입 : 숫자, 문자, 논리값, undefined, null, 심볼(es6+)
+
+  - 데이터를 구성하는 가장 기본적인 요소로 불변값으로 정의
+
+  ```
+  Boolean 타입의 값은 당연히 true와 false 2개 뿐입니다. 다른 값은 존재할 수 없습니다.
+  Number 타입과 String 타입에는 조금 더 많은 값들이 존재합니다. 표준에 의하면 가능한
+  Number 타입 값은 18,437,736,874,454,810,627 개입니다 (NaN을 포함해서요. NaN은 “Not a Number”를 의미하는 값입니다).
+  String 타입은 훨씬 더 많은 값을 가질 수 있습니다
+  ```
+
+- 객체타입(Object) : 변수 여러 개가 모여서 만들어진 <u>복합 데이터 타입</u>
+
+  ```
+  객체 = '이름(key):값(value)' 의 형태로 프로퍼티(속성)들을 저장
+  ```
+
+- 객체는 참조 타입이며 객체 타입의 값을 변수에 대입하면 변수에는 그 객체에 대한 참조(메모리에서의 위치 정보)가 할당된다.
+
+- 자바스크립트에서 배열, 함수, 정규표현식 같은 다양한 요소가 객체이다.
+
+  - ECMAScript 함수는 일반 객체의 확장이며, 함수로 동작하기 위한 추가적인 기능을 가지고 있다.
+
+  ```
+  function f() { return true; }
+  console.log(f);
+  console.dir(f);
+  ```
+
+- undefined 와 null 차이
+
+  - 분명한 차이점은 undefined는 변수를 선언만 하더라도 할당되지만 null은 변수를 선언한 후에 null로 값을 바꾼다는 점입니다.
+
+  - null 은 값은 값이지만 값으로써 의미없는 특별한 값이 등록되어 있는 것이고, undefined 는 등록이 되어있지 않기 때문에 초기화도 정의되지도 않은 것입니다.
+
+  - undefined 는 미리 선언된 전역변수(전역 객체의 프로퍼티)이며, null 은 선언,등록을 하는 키워드인 것입니다.
+
+  ```
+  undefined = 존재하지 않음 / null = 값 없음
+  ```
+
+- 상수(Const)와 리터럴 차이
+
+  - 상수는 프로그램 내의 항상 같은 값을 표현하는 것이며,<br />
+    리터럴은 어떠한 값을 명칭하는 것이 아니라 변수 및 상수에 저장되는 '값 자체'를 말한다.
+
+  - 변수나 상수는 메모리에 할당된 '공간' 이라면, 리터럴은 이 공간에 저장되는 '값'을 의미한다.
+
+---
+
+#### 3-3-2 Symbol
+
+심볼은 자기 자신을 제외한 그 어떤 값과도 다른 유일무이한 값이다.
+
+```js
+const s1 = Symbol();
+const s2 = Symbol();
+const aSymbol_1 = Symbol('a');
+const aSymbol_2 = Symbol('a');
+
+console.log(s1 === s2); // false
+console.log(aSymbol_1 === aSymbol_2); // false
+```
+
+같은 심볼을 사용하고 싶을 경우
+
+```js
+const s1 = Symbol();
+const s2 = s1;
+```
+
+```js
+const s1 = Symbol.for('mySym');
+const s2 = Symbol.for('mySym');
+
+console.log(s1 === s2);
+```
+
+---
+
+#### 3-3-3 Symbol 활용
+
+<a href="https://codevkr.tistory.com/83" target="_blank">설명</a>
+
+심볼 타입은 주로 <u>객체의 고유한 프로퍼티의 값으로 사용</u>하는 목적으로 쓰인다.
+
+```js
+const a = Symbol();
+
+const obj = {
+  a: 'a 입니다',
+  [a]: '조금 다른 a 입니다',
+};
+
+obj.a;
+obj[a];
+
+obj.a = 'b입니다';
+
+obj.a;
+obj[a];
+```
+
+---
+
+#### 3-3-4 템플릿 문자열
+
+ES6 이전에는 변수나 상수를 문자열 안에 포함시키는 방식
+
+```js
+var test = 20;
+var txt = '내 나이는' + test + '입니다.';
+console.log(txt);
+```
+
+ES6에서는 문자열 템플릿 이라는 기능을 도입 (백틱 사용)
+
+```js
+var test = 20;
+var txt = `내 나이는${test}입니다.`;
+console.log(txt);
+```
+
+---
+
+#### 3-3-5 그외
+
+- 배열
+- 정규표현식
+- 데이터 타입 변환
