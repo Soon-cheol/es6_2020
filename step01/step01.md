@@ -15,8 +15,8 @@
 Ecma 인터내셔널의 SCMA-262 기술 규격에 의해 정의된 그리고 표준화 된 스크립트 프로그래밍 언어
 ```
 
-<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" :target="_blank">관련영상</a><br />
-<a href="https://kangax.github.io/compat-table/es6/" :target="_blank">브라우저 지원 현황</a>
+<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" target="_blank">관련영상</a><br />
+<a href="https://kangax.github.io/compat-table/es6/" target="_blank">브라우저 지원 현황</a>
 
 ---
 
@@ -73,8 +73,8 @@ ES 8 (2017)
 
 ```
 npm install 명령어에는 지역(local) 설치와 전역(global) 설치 옵션이 있다. 옵션을 별도로 지정하지 않으면 지역으로 설치되며,
-프로젝트 루트 디렉터리에 node_modules 디렉터리가 자동 생성되고 그 안에 패키지가 설치된다. 지역으로 설치된 패키지는 해당 프로젝트
-내에서만 사용할 수 있다.
+프로젝트 루트 디렉터리에 node_modules 디렉터리가 자동 생성되고 그 안에 패키지가 설치된다. 지역으로 설치된 패키지는 해당
+프로젝트 내에서만 사용할 수 있다.
 
 전역에 패키지를 설치하려면 npm install 명령어에 -g 옵션을 지정한다. 전역으로 설치된 패키지는 전역에서 참조할 수 있다.
 모든 프로젝트가 공통 사용하는 패키지는 지역으로 설치하지 않고 전역에 설치한다.
@@ -89,6 +89,9 @@ npm install 명령어에는 지역(local) 설치와 전역(global) 설치 옵션
 
 c:\Users\%USERNAME%\AppData\Roaming\npm\node_modules
 ```
+
+<br />
+<img src="project.png" >
 
 2. ES Lint ( 문법검사 )
 
