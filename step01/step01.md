@@ -15,8 +15,8 @@
 Ecma 인터내셔널의 SCMA-262 기술 규격에 의해 정의된 그리고 표준화 된 스크립트 프로그래밍 언어
 ```
 
-<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" target="_blank">관련영상</a><br />
-<a href="https://kangax.github.io/compat-table/es6/" target="_blank">브라우저 지원 현황</a>
+<a href="https://www.youtube.com/watch?v=wcsVjmHrUQg" :target="_blank">관련영상</a><br />
+<a href="https://kangax.github.io/compat-table/es6/" :target="_blank">브라우저 지원 현황</a>
 
 ---
 
