@@ -91,10 +91,15 @@ npm install 명령어에는 지역(local) 설치와 전역(global) 설치 옵션
 c:\Users\%USERNAME%\AppData\Roaming\npm\node_modules
 ```
 
+<img src="node_module.jpg" >
+
+<br />
 <br />
 <img src="project.png" >
 
 2. ES Lint ( 문법검사 )
+
+<img src="eslint.png" >
 
 ```
 npx eslint app.js
@@ -394,3 +399,124 @@ console.log(txt);
 ---
 
 ## 4장 제어문
+
+- 조건문 : if/else문 / switch문 / catch/finally문
+- 반복문 : while문 / do/while문 / for문 / for in문 / for of문
+- 점프문 : break문 / continue문 / return문 / throw문
+
+### 4-1 if/else 문
+
+```js
+if (!name) {
+  // name이 nill, undefined, false, 0, -0, "", NaN 일 경우
+  name = '';
+  message = '이름을 입력하십시오';
+}
+```
+
+### 4-2 switch 문
+
+```js
+const n = 2;
+switch (n) {
+  case 1:
+    console.log('One');
+    break;
+  case 2:
+    console.log('Two');
+    break;
+  case 3:
+    console.log('Three');
+    break;
+  default:
+    console.log('Other');
+}
+```
+
+- break 대신 return 도 사용 가능
+
+```js
+const n = 2;
+switch (n) {
+  case 1:
+    return n + 1;
+  case 2:
+    return n + 2;
+  case 3:
+    return n + 3;
+    return;
+  default:
+    return n;
+}
+```
+
+```js
+const n = 2;
+test(n);
+function test(n) {
+  switch (n) {
+    case 1:
+      console.log('일');
+      return;
+    case 2:
+      console.log('이');
+      return;
+    case 3:
+      console.log('삼');
+      return;
+    default:
+      console.log('그외');
+      return;
+  }
+}
+```
+
+### 4-3 while 문
+
+- 조건이 맞으면 계속 반복 실행 (true)
+
+```js
+while (조건식) 문장;
+```
+
+```js
+var n = 0;
+var x = 0;
+
+while (n < 3) {
+  n++;
+  x += n;
+  console.log('n', n);
+  console.log('x', x);
+}
+```
+
+### 4-4 do / while 문
+
+```js
+let i = 10;
+do {
+  i -= 1;
+  console.log(i);
+} while (i < 5);
+```
+
+### 4-5 for 문
+
+### 4-6 for in 문
+
+```js
+// 키 출력
+var obj = { a: 1, b: 2, C: 3 };
+for (var p in obj) {
+  console.log('p = ' + p);
+}
+// 키값 출력
+var obj = { a: 1, b: 2, C: 3 };
+1;
+for (var p in obj) {
+  console.log('p = ' + obj[p]);
+}
+```
+
+### <a href="https://gist.github.com/qodot/ecf8d90ce291196817f8cf6117036997">4-7 for of 문</a>
