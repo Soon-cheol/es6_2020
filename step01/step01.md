@@ -151,10 +151,10 @@ eslint --init
 let a = 3;
 const test = (a, b) => a * b;
 
-const { cat, dog, tiger, monkey = 'monkey' } = {
-  cat: 'CAT',
-  dog: 'DOG',
-  tiger: 'TIGER',
+const { cat, dog, tiger, monkey = "monkey" } = {
+  cat: "CAT",
+  dog: "DOG",
+  tiger: "TIGER",
 };
 ```
 
@@ -178,6 +178,8 @@ Babel을 사용하려면 @babel/preset-env을 설치해야 한다. @babel/preset
 ```
 -w 타깃 폴더에 있는 모든 파일들의 변경을 감지하여 자동으로 트랜스파일한다. (--watch 옵션의 축약형)
 -d 트랜스파일링된 결과물이 저장될 폴더를 지정한다. (--out-dir 옵션의 축약형)
+
+npm run build
 ```
 
 5. <a href="https://poiemaweb.com/es6-babel-webpack-2" target="_blank">webpack (번들)</a>
@@ -322,8 +324,8 @@ symbol : 데이터 타입이 심볼일 때
 ```js
 const s1 = Symbol();
 const s2 = Symbol();
-const aSymbol_1 = Symbol('a');
-const aSymbol_2 = Symbol('a');
+const aSymbol_1 = Symbol("a");
+const aSymbol_2 = Symbol("a");
 
 console.log(s1 === s2); // false
 console.log(aSymbol_1 === aSymbol_2); // false
@@ -337,8 +339,8 @@ const s2 = s1;
 ```
 
 ```js
-const s1 = Symbol.for('mySym');
-const s2 = Symbol.for('mySym');
+const s1 = Symbol.for("mySym");
+const s2 = Symbol.for("mySym");
 
 console.log(s1 === s2);
 ```
@@ -355,14 +357,14 @@ console.log(s1 === s2);
 const a = Symbol();
 
 const obj = {
-  a: 'a 입니다',
-  [a]: '조금 다른 a 입니다',
+  a: "a 입니다",
+  [a]: "조금 다른 a 입니다",
 };
 
 obj.a;
 obj[a];
 
-obj.a = 'b입니다';
+obj.a = "b입니다";
 
 obj.a;
 obj[a];
@@ -376,7 +378,7 @@ ES6 이전에는 변수나 상수를 문자열 안에 포함시키는 방식
 
 ```js
 var test = 20;
-var txt = '내 나이는' + test + '입니다.';
+var txt = "내 나이는" + test + "입니다.";
 console.log(txt);
 ```
 
