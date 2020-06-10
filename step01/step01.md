@@ -524,3 +524,9 @@ for (var p in obj) {
 ```
 
 ### <a href="https://gist.github.com/qodot/ecf8d90ce291196817f8cf6117036997">4-7 for of 문</a>
+
+### 4-8 for each 문
+
+### <a href="https://webclub.tistory.com/71">4-9 try/catch/finally 문</a>
+
+<img src="try_catch.JPG" />
