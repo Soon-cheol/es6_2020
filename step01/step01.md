@@ -101,6 +101,8 @@ c:\Users\%USERNAME%\AppData\Roaming\npm\node_modules
 
 <img src="eslint.png" >
 
+https://velog.io/@kyusung/eslint-config-2
+
 ```
 npx eslint app.js
 ```
@@ -411,8 +413,8 @@ console.log(txt);
 ```js
 if (!name) {
   // name이 nill, undefined, false, 0, -0, "", NaN 일 경우
-  name = '';
-  message = '이름을 입력하십시오';
+  name = "";
+  message = "이름을 입력하십시오";
 }
 ```
 
@@ -422,16 +424,16 @@ if (!name) {
 const n = 2;
 switch (n) {
   case 1:
-    console.log('One');
+    console.log("One");
     break;
   case 2:
-    console.log('Two');
+    console.log("Two");
     break;
   case 3:
-    console.log('Three');
+    console.log("Three");
     break;
   default:
-    console.log('Other');
+    console.log("Other");
 }
 ```
 
@@ -458,16 +460,16 @@ test(n);
 function test(n) {
   switch (n) {
     case 1:
-      console.log('일');
+      console.log("일");
       return;
     case 2:
-      console.log('이');
+      console.log("이");
       return;
     case 3:
-      console.log('삼');
+      console.log("삼");
       return;
     default:
-      console.log('그외');
+      console.log("그외");
       return;
   }
 }
@@ -488,8 +490,8 @@ var x = 0;
 while (n < 3) {
   n++;
   x += n;
-  console.log('n', n);
-  console.log('x', x);
+  console.log("n", n);
+  console.log("x", x);
 }
 ```
 
@@ -511,13 +513,13 @@ do {
 // 키 출력
 var obj = { a: 1, b: 2, C: 3 };
 for (var p in obj) {
-  console.log('p = ' + p);
+  console.log("p = " + p);
 }
 // 키값 출력
 var obj = { a: 1, b: 2, C: 3 };
 1;
 for (var p in obj) {
-  console.log('p = ' + obj[p]);
+  console.log("p = " + obj[p]);
 }
 ```
 
