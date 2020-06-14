@@ -153,10 +153,10 @@ eslint --init
 let a = 3;
 const test = (a, b) => a * b;
 
-const { cat, dog, tiger, monkey = "monkey" } = {
-  cat: "CAT",
-  dog: "DOG",
-  tiger: "TIGER",
+const { cat, dog, tiger, monkey = 'monkey' } = {
+  cat: 'CAT',
+  dog: 'DOG',
+  tiger: 'TIGER',
 };
 ```
 
@@ -326,8 +326,8 @@ symbol : 데이터 타입이 심볼일 때
 ```js
 const s1 = Symbol();
 const s2 = Symbol();
-const aSymbol_1 = Symbol("a");
-const aSymbol_2 = Symbol("a");
+const aSymbol_1 = Symbol('a');
+const aSymbol_2 = Symbol('a');
 
 console.log(s1 === s2); // false
 console.log(aSymbol_1 === aSymbol_2); // false
@@ -341,8 +341,8 @@ const s2 = s1;
 ```
 
 ```js
-const s1 = Symbol.for("mySym");
-const s2 = Symbol.for("mySym");
+const s1 = Symbol.for('mySym');
+const s2 = Symbol.for('mySym');
 
 console.log(s1 === s2);
 ```
@@ -359,14 +359,14 @@ console.log(s1 === s2);
 const a = Symbol();
 
 const obj = {
-  a: "a 입니다",
-  [a]: "조금 다른 a 입니다",
+  a: 'a 입니다',
+  [a]: '조금 다른 a 입니다',
 };
 
 obj.a;
 obj[a];
 
-obj.a = "b입니다";
+obj.a = 'b입니다';
 
 obj.a;
 obj[a];
@@ -380,7 +380,7 @@ ES6 이전에는 변수나 상수를 문자열 안에 포함시키는 방식
 
 ```js
 var test = 20;
-var txt = "내 나이는" + test + "입니다.";
+var txt = '내 나이는' + test + '입니다.';
 console.log(txt);
 ```
 
@@ -391,6 +391,8 @@ var test = 20;
 var txt = `내 나이는${test}입니다.`;
 console.log(txt);
 ```
+
+<img src="./string_template.png">
 
 ---
 
@@ -413,8 +415,8 @@ console.log(txt);
 ```js
 if (!name) {
   // name이 nill, undefined, false, 0, -0, "", NaN 일 경우
-  name = "";
-  message = "이름을 입력하십시오";
+  name = '';
+  message = '이름을 입력하십시오';
 }
 ```
 
@@ -424,16 +426,16 @@ if (!name) {
 const n = 2;
 switch (n) {
   case 1:
-    console.log("One");
+    console.log('One');
     break;
   case 2:
-    console.log("Two");
+    console.log('Two');
     break;
   case 3:
-    console.log("Three");
+    console.log('Three');
     break;
   default:
-    console.log("Other");
+    console.log('Other');
 }
 ```
 
@@ -460,16 +462,16 @@ test(n);
 function test(n) {
   switch (n) {
     case 1:
-      console.log("일");
+      console.log('일');
       return;
     case 2:
-      console.log("이");
+      console.log('이');
       return;
     case 3:
-      console.log("삼");
+      console.log('삼');
       return;
     default:
-      console.log("그외");
+      console.log('그외');
       return;
   }
 }
@@ -490,8 +492,8 @@ var x = 0;
 while (n < 3) {
   n++;
   x += n;
-  console.log("n", n);
-  console.log("x", x);
+  console.log('n', n);
+  console.log('x', x);
 }
 ```
 
@@ -513,13 +515,13 @@ do {
 // 키 출력
 var obj = { a: 1, b: 2, C: 3 };
 for (var p in obj) {
-  console.log("p = " + p);
+  console.log('p = ' + p);
 }
 // 키값 출력
 var obj = { a: 1, b: 2, C: 3 };
 1;
 for (var p in obj) {
-  console.log("p = " + obj[p]);
+  console.log('p = ' + obj[p]);
 }
 ```
 
