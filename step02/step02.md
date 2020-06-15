@@ -381,3 +381,227 @@ typeof +n;
 let n = '26';
 typeof (n * 1);
 ```
+
+---
+
+## 6장 함수
+
+---
+
+### 6-1 함수의 기초
+
+함수(function)란 하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 블록을 의미합니다.
+
+이러한 함수는 필요할 때마다 호출하여 해당 작업을 반복해서 수행할 수 있습니다.
+
+```
+- 매개변수, 인자(parameter) : 함수를 정의할 때
+- 인수(argument) : 함수를 호출할 때
+```
+
+- 함수 선언식
+
+```js
+function test(n) {
+  console.log(n);
+}
+```
+
+- 함수 표현식
+
+```js
+let test = function (n) {
+  console.log(n);
+};
+test(4);
+```
+
+- 함수 표현식과 함수 선언의 차이점 : 호이스팅
+
+```js
+sayHi(); // 'hi'
+sayHello(); // what?? 그런 함수 없어
+
+var hi = 'hi';
+function sayHi() {
+  console.log('hi');
+}
+var sayHello = function () {
+  console.log('hello');
+};
+```
+
+```
+Hoisting의 개념: 자바스크립트 엔진이 script 태그를 만나면 자바스크립트 파일을 먼저 쭉 읽으면서 선언된 변수와 함수를
+메모리에 저장한다. 위의 코드를 예로 들면 먼저 변수 hi와 sayHi 함수(전체), sayHello 변수가 메모리에 저장되는 것이다.
+이 과정이 끝나면 코드가 위에서 부터 차례대로 실행되는데 sayHi() 함수의 경우 메모리에 저장되어 있기 때문에 문제없이
+실행되지만 sayHello의 경우 아직 값이 할당되기 전이기 때문에 에러가 발생한다.
+
+때문에, 함수 선언으로 생성된 함수는 함수가 정의되기 전에 실행이 가능하며 함수 표현식은 그렇지 않다.
+```
+
+---
+
+### 6-2 반환(return)문
+
+```js
+function multiNum(x, y) {
+  x * y;
+}
+var num = multiNum(3, 4);
+console.log(num);
+```
+
+```js
+function multiNum(x, y) {
+  return x * y; // x와 y를 곱한 결과를 반환함.
+}
+var num = multiNum(3, 4); // multiNum() 함수가 호출된 후, 그 반환값이 변수 num에 저장됨.
+console.log(num);
+```
+
+---
+
+### 6-3 인수를 객체로 전달
+
+```js
+function test(x, y, z) {
+  console.log('x', x);
+  console.log('y', y);
+  console.log('z', z);
+}
+test(1, 2, 3);
+```
+
+```js
+let params = { x: 1, y: 2, z: 3 };
+
+function test(params) {
+  console.log('x', params.x);
+  console.log('y', params.y);
+  console.log('z', params.z);
+}
+test(params);
+```
+
+---
+
+### 6-4 메서드
+
+메서드는 객체의 키값이 함수인 경우를 말합니다.
+
+```js
+console.log({ Number });
+```
+
+```
+Number 메소드는 Number 객체에 정의되어 있는 숫자와 관련된 작업을 할 때 사용하는 메소드입니다.
+
+1. Number.parseFloat()
+2. Number.parseInt()
+3. Number.isNaN()
+4. Number.isFinite()
+5. Number.isInteger()
+6. Number.isSafeInteger()
+```
+
+---
+
+### 6-5 즉시 실행 함수
+
+```js
+let f = function() {...}
+f();
+```
+
+```js
+(function() {...})();
+```
+
+---
+
+### 6-6 재귀 함수
+
+```js
+function fact(n) {
+  if (n <= 1) return 1;
+  return n * fact(n - 1);
+}
+fact(5);
+```
+
+---
+
+### 6-7 화살표 함수
+
+```js
+/* Function expression */
+function square(n) {
+  return n * n;
+}
+
+/* Arrow function */
+const square = (n) => {
+  return n * n;
+};
+
+/* Arrow function without block */
+const square = (n) => n * n;
+// 블록을 사용하지 않는다면, return을 생략한채로 값을 반환할 수 있다.
+
+/* Arrow function with multiple parameters */
+const power = (n, e) => n ** e;
+// 여러 개의 인자를 사용할 떄에는 파라미터들을 ()로 묶어줘야 한다.
+
+/* Arrow function returns simple object */
+const createObj = (n) => ({
+  number: n,
+});
+// 단순 객체를 반환하기 위해서는 객체 리터럴을 ()로 묶어줘야 한다.
+```
+
+```js
+const obj = {
+  name: 'dongsu',
+  test: function () {
+    console.log('1st', this);
+    function innerTest() {
+      console.log('2nd', this);
+    }
+    return innerTest();
+  },
+};
+obj.test();
+```
+
+위의 예제에서의 첫번째 this는 obj객체를 바라봅니다.
+
+두번쨰 this는 window객체 혹은 undefined를 나타낼 것입니다.
+
+일반적으로 this객체는 부모와 자식간의 상속에서 발생합니다.
+
+자바스크립트에서 생성자 혹은 객체의 프로퍼티(메소드)를 사용하지 않는경우 this는 전역객체가 됩니다.
+
+위의 코드에서 함수 innerTest는 생성자 혹은 메소드가 아니기 때문에 전역객체를 가리키게 됩니다.
+
+그렇기 때문에 크롬 브라우저에서 테스트를 해보면 두번째 this가 window 객체를 바라보게 되는것이죠
+
+그렇다면 화살표 함수를 사용했을때는 어떻게 될까?
+
+`기본적으로 화살표 함수는 this객체를 bind하지 않습니다.`
+
+```js
+const obj = {
+  name: 'dongsu',
+  test: function () {
+    console.log('1st', this);
+    const inner = () => {
+      console.log('2nd', this);
+    };
+    return inner();
+  },
+};
+obj.test();
+```
+
+https://yuja-kong.tistory.com/76
