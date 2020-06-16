@@ -96,7 +96,7 @@ console.log(`c : ${c}`);
 
 ```js
 let age = 29;
-let canDrinkAlcohol = age > 19 ? 'True, over 19' : 'False, under 19';
+let canDrinkAlcohol = age > 19 ? "True, over 19" : "False, under 19";
 console.log(canDrinkAlcohol);
 ```
 
@@ -105,11 +105,11 @@ let condition1 = true,
   condition2 = false,
   access = condition1
     ? condition2
-      ? 'true true'
-      : 'true false'
+      ? "true true"
+      : "true false"
     : condition2
-    ? 'false true'
-    : 'false false';
+    ? "false true"
+    : "false false";
 
 console.log(access); // logs "true false"
 ```
@@ -138,8 +138,8 @@ x + y 같은 표현식은 변수의 값을 바꾸지 않지만, x = y 처럼 대
 
 ```js
 const Employee = {
-  firstname: 'John',
-  lastname: 'Doe',
+  firstname: "John",
+  lastname: "Doe",
 };
 
 console.log(Employee.firstname);
@@ -162,7 +162,7 @@ console.log(Employee.firstname);
 - 구조분해 할당
 
 ```js
-var foo = ['one', 'two', 'three'];
+var foo = ["one", "two", "three"];
 
 // 구조 분해를 활용하지 않은 경우
 var one = foo[0];
@@ -200,11 +200,11 @@ var [one, two, three] = foo;
 
 ```js
 null == undefined;
-1 == '1';
-'0xff' == 255;
+1 == "1";
+"0xff" == 255;
 true == 1;
-true == '1';
-new String('a') == 'a';
+true == "1";
+new String("a") == "a";
 new Number(2) == 2;
 [2] == 2;
 ```
@@ -264,21 +264,21 @@ new Number(2) == 2;
 3. \+ 연산자는 피연산자 중 하나가 문자열이면 나머지 피연산자를 문자열로 만듭니다.
 
 ```js
-let m = 1 + '2month';
+let m = 1 + "2month";
 typeof m;
 ```
 
 - 형변환에 활용
 
 ```js
-'1' * 1;
+"1" * 1;
 ```
 
 4. 계산이 불가능한 경우에는 `NaN` 으로 평가합니다.
 
 ```js
 0 / 0;
-'ONE' * 1;
+"ONE" * 1;
 1 + undefined; // undefined 를 NaN 으로 바꿈
 ```
 
@@ -310,20 +310,20 @@ c = a++ + 2;
 (문자열로 변환 가능한 객체이면 객체도 문자열로 변환)
 
 ```js
-'안녕' + '잘가';
+"안녕" + "잘가";
 
-let a = '1' + '2';
+let a = "1" + "2";
 typeof a;
 
 1 + { a: 1 };
 
-'오늘은 ' + new Date();
+"오늘은 " + new Date();
 ```
 
 #### <a href="https://codedragon.tistory.com/6465">5-7-1 String 객체의 주요 메서드</a>
 
 ```js
-let txt = 'ECMA SCRIPT 2015';
+let txt = "ECMA SCRIPT 2015";
 txt.length; // 16 (공백 포함)
 txt[2]; // 'M' (문자열을 배열처럼 사용)
 ```
@@ -333,7 +333,7 @@ txt[2]; // 'M' (문자열을 배열처럼 사용)
 ### <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval">5-8 eval 함수</a>
 
 ```js
-console.log(eval('2 + 2')); // 4
+console.log(eval("2 + 2")); // 4
 ```
 
 - 편리하지만 보안 문제와 실행 속도의 문제가 있으므로 가능하다면 다른 대안을 사용하는 걸 추천합니다.
@@ -360,7 +360,7 @@ typeof n.toString();
 
 ```js
 let n = 26;
-typeof (n + '');
+typeof (n + "");
 ```
 
 ---
@@ -368,17 +368,17 @@ typeof (n + '');
 #### 5-9-2 문자열을 숫자로 변환
 
 ```js
-let n = '26';
+let n = "26";
 typeof (n - 0);
 ```
 
 ```js
-let n = '26';
+let n = "26";
 typeof +n;
 ```
 
 ```js
-let n = '26';
+let n = "26";
 typeof (n * 1);
 ```
 
@@ -422,12 +422,12 @@ test(4);
 sayHi(); // 'hi'
 sayHello(); // what?? 그런 함수 없어
 
-var hi = 'hi';
+var hi = "hi";
 function sayHi() {
-  console.log('hi');
+  console.log("hi");
 }
 var sayHello = function () {
-  console.log('hello');
+  console.log("hello");
 };
 ```
 
@@ -466,9 +466,9 @@ console.log(num);
 
 ```js
 function test(x, y, z) {
-  console.log('x', x);
-  console.log('y', y);
-  console.log('z', z);
+  console.log("x", x);
+  console.log("y", y);
+  console.log("z", z);
 }
 test(1, 2, 3);
 ```
@@ -477,9 +477,9 @@ test(1, 2, 3);
 let params = { x: 1, y: 2, z: 3 };
 
 function test(params) {
-  console.log('x', params.x);
-  console.log('y', params.y);
-  console.log('z', params.z);
+  console.log("x", params.x);
+  console.log("y", params.y);
+  console.log("z", params.z);
 }
 test(params);
 ```
@@ -562,11 +562,11 @@ const createObj = (n) => ({
 
 ```js
 const obj = {
-  name: 'dongsu',
+  name: "dongsu",
   test: function () {
-    console.log('1st', this);
+    console.log("1st", this);
     function innerTest() {
-      console.log('2nd', this);
+      console.log("2nd", this);
     }
     return innerTest();
   },
@@ -592,16 +592,29 @@ obj.test();
 
 ```js
 const obj = {
-  name: 'dongsu',
+  name: "dongsu",
   test: function () {
-    console.log('1st', this);
+    console.log("1st", this);
     const inner = () => {
-      console.log('2nd', this);
+      console.log("2nd", this);
     };
     return inner();
   },
 };
 obj.test();
+```
+
+```js
+function hello() {
+  console.log(this.name);
+}
+
+var obj = {
+  name: "chris",
+  hello: hello,
+};
+
+obj.hello(); // 'chris'
 ```
 
 https://yuja-kong.tistory.com/76
