@@ -96,7 +96,7 @@ console.log(`c : ${c}`);
 
 ```js
 let age = 29;
-let canDrinkAlcohol = age > 19 ? "True, over 19" : "False, under 19";
+let canDrinkAlcohol = age > 19 ? 'True, over 19' : 'False, under 19';
 console.log(canDrinkAlcohol);
 ```
 
@@ -105,11 +105,11 @@ let condition1 = true,
   condition2 = false,
   access = condition1
     ? condition2
-      ? "true true"
-      : "true false"
+      ? 'true true'
+      : 'true false'
     : condition2
-    ? "false true"
-    : "false false";
+    ? 'false true'
+    : 'false false';
 
 console.log(access); // logs "true false"
 ```
@@ -138,8 +138,8 @@ x + y 같은 표현식은 변수의 값을 바꾸지 않지만, x = y 처럼 대
 
 ```js
 const Employee = {
-  firstname: "John",
-  lastname: "Doe",
+  firstname: 'John',
+  lastname: 'Doe',
 };
 
 console.log(Employee.firstname);
@@ -162,7 +162,7 @@ console.log(Employee.firstname);
 - 구조분해 할당
 
 ```js
-var foo = ["one", "two", "three"];
+var foo = ['one', 'two', 'three'];
 
 // 구조 분해를 활용하지 않은 경우
 var one = foo[0];
@@ -200,11 +200,11 @@ var [one, two, three] = foo;
 
 ```js
 null == undefined;
-1 == "1";
-"0xff" == 255;
+1 == '1';
+'0xff' == 255;
 true == 1;
-true == "1";
-new String("a") == "a";
+true == '1';
+new String('a') == 'a';
 new Number(2) == 2;
 [2] == 2;
 ```
@@ -264,21 +264,21 @@ new Number(2) == 2;
 3. \+ 연산자는 피연산자 중 하나가 문자열이면 나머지 피연산자를 문자열로 만듭니다.
 
 ```js
-let m = 1 + "2month";
+let m = 1 + '2month';
 typeof m;
 ```
 
 - 형변환에 활용
 
 ```js
-"1" * 1;
+'1' * 1;
 ```
 
 4. 계산이 불가능한 경우에는 `NaN` 으로 평가합니다.
 
 ```js
 0 / 0;
-"ONE" * 1;
+'ONE' * 1;
 1 + undefined; // undefined 를 NaN 으로 바꿈
 ```
 
@@ -310,20 +310,20 @@ c = a++ + 2;
 (문자열로 변환 가능한 객체이면 객체도 문자열로 변환)
 
 ```js
-"안녕" + "잘가";
+'안녕' + '잘가';
 
-let a = "1" + "2";
+let a = '1' + '2';
 typeof a;
 
 1 + { a: 1 };
 
-"오늘은 " + new Date();
+'오늘은 ' + new Date();
 ```
 
 #### <a href="https://codedragon.tistory.com/6465">5-7-1 String 객체의 주요 메서드</a>
 
 ```js
-let txt = "ECMA SCRIPT 2015";
+let txt = 'ECMA SCRIPT 2015';
 txt.length; // 16 (공백 포함)
 txt[2]; // 'M' (문자열을 배열처럼 사용)
 ```
@@ -333,7 +333,7 @@ txt[2]; // 'M' (문자열을 배열처럼 사용)
 ### <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval">5-8 eval 함수</a>
 
 ```js
-console.log(eval("2 + 2")); // 4
+console.log(eval('2 + 2')); // 4
 ```
 
 - 편리하지만 보안 문제와 실행 속도의 문제가 있으므로 가능하다면 다른 대안을 사용하는 걸 추천합니다.
@@ -360,7 +360,7 @@ typeof n.toString();
 
 ```js
 let n = 26;
-typeof (n + "");
+typeof (n + '');
 ```
 
 ---
@@ -368,25 +368,23 @@ typeof (n + "");
 #### 5-9-2 문자열을 숫자로 변환
 
 ```js
-let n = "26";
+let n = '26';
 typeof (n - 0);
 ```
 
 ```js
-let n = "26";
+let n = '26';
 typeof +n;
 ```
 
 ```js
-let n = "26";
+let n = '26';
 typeof (n * 1);
 ```
 
 ---
 
 ## 6장 함수
-
----
 
 ### 6-1 함수의 기초
 
@@ -422,12 +420,12 @@ test(4);
 sayHi(); // 'hi'
 sayHello(); // what?? 그런 함수 없어
 
-var hi = "hi";
+var hi = 'hi';
 function sayHi() {
-  console.log("hi");
+  console.log('hi');
 }
 var sayHello = function () {
-  console.log("hello");
+  console.log('hello');
 };
 ```
 
@@ -466,9 +464,9 @@ console.log(num);
 
 ```js
 function test(x, y, z) {
-  console.log("x", x);
-  console.log("y", y);
-  console.log("z", z);
+  console.log('x', x);
+  console.log('y', y);
+  console.log('z', z);
 }
 test(1, 2, 3);
 ```
@@ -477,9 +475,9 @@ test(1, 2, 3);
 let params = { x: 1, y: 2, z: 3 };
 
 function test(params) {
-  console.log("x", params.x);
-  console.log("y", params.y);
-  console.log("z", params.z);
+  console.log('x', params.x);
+  console.log('y', params.y);
+  console.log('z', params.z);
 }
 test(params);
 ```
@@ -562,11 +560,12 @@ const createObj = (n) => ({
 
 ```js
 const obj = {
-  name: "dongsu",
+  name: 'dongsu',
   test: function () {
-    console.log("1st", this);
+    console.log('1st', this);
     function innerTest() {
-      console.log("2nd", this);
+      console.log('2nd', this);
+      console.log('name', this.name);
     }
     return innerTest();
   },
@@ -592,11 +591,12 @@ obj.test();
 
 ```js
 const obj = {
-  name: "dongsu",
+  name: 'dongsu',
   test: function () {
-    console.log("1st", this);
+    console.log('1st', this);
     const inner = () => {
-      console.log("2nd", this);
+      console.log('2nd', this);
+      console.log('name', this.name);
     };
     return inner();
   },
@@ -604,17 +604,107 @@ const obj = {
 obj.test();
 ```
 
-```js
-function hello() {
-  console.log(this.name);
-}
+```
+화살표 함수를 사용하면 안되는 경우
 
-var obj = {
-  name: "chris",
-  hello: hello,
-};
-
-obj.hello(); // 'chris'
+- 메소드 정의, 프로토타입에 메소드 할당할 경우 => 메소드를 소유한 객체가 아닌 상위 컨텍스트인 전역객체 window 를 가리키게 된다.
+- 생성자 함수로 사용할 경우 => 화살표 함수는 prototype을 갖고있지 않다.
+- addEventListener 함수의 콜백 함수 => 화살표 함수를 사용할 경우 전역 객체 window를 가리킨다.
 ```
 
-https://yuja-kong.tistory.com/76
+https://beomy.tistory.com/6
+
+---
+
+## 7장 스코프
+
+### 7-1 전역 스코프
+
+프로그램을 시작할 때 암시적으로 주어지는 스코프가 전역 스코프입니다.
+
+즉, 어떤 함수도 호출하지 않았을 때 실행의 흐름은 전역 스코프에 있고 전역 스코프에 선언된 것들을 전역 변수라고 합니다.
+
+```js
+let name = 'csc';
+let age = '35';
+
+function greet() {
+  console.log(`Hello, ${name}!`);
+}
+
+function getBirthYear() {
+  return new Date().getFullYear() - age;
+}
+```
+
+전역 변수는 프로그램 어디서든 값을 쉽게 변경할 수 있으므로 객체 형태로 보관하는 방법을 추천합니다.
+
+```js
+let user = {
+  name: 'csc',
+  age: 25,
+};
+
+function greet() {
+  console.log(`Hello, ${user.name}!`);
+}
+
+function getBirthYear() {
+  return new Date().getFullYear() - user.age;
+}
+```
+
+---
+
+### 7-2 블록 스코프
+
+let 과 const 는 식별자를 블록 스코프에서 선언하고 그 블록의 스코프에서만 사용 가능한 식별자를 의미합니다.
+
+```js
+var(선언자) test(식별자)
+let(선언자) test(식별자)
+const(선언자) test(식별자)
+```
+
+```js
+{
+  const x = 3;
+  console.log('inside block');
+  console.log(x);
+}
+console.log('outside block');
+console.log(x);
+```
+
+- 다른 스코프의 경우
+
+```js
+{
+  const x = 3;
+  console.log('inside block1');
+  console.log(x);
+}
+{
+  const x = 4;
+  console.log('inside block2');
+  console.log(x);
+}
+```
+
+- 중첩 스코프의 경우
+
+```js
+{
+  let x = 3;
+  console.log(1, x);
+  {
+    let x = '바뀐 3';
+    console.log(2, x);
+  }
+  console.log(3, x);
+}
+```
+
+---
+
+### 7-3 클로저
