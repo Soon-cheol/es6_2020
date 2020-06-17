@@ -625,8 +625,8 @@ https://beomy.tistory.com/6
 즉, 어떤 함수도 호출하지 않았을 때 실행의 흐름은 전역 스코프에 있고 전역 스코프에 선언된 것들을 전역 변수라고 합니다.
 
 ```js
-let name = "csc";
-let age = "35";
+var name = "csc";
+var age = "35";
 
 function greet() {
   console.log(`Hello, ${name}!`);
@@ -640,7 +640,7 @@ function getBirthYear() {
 전역 변수는 프로그램 어디서든 값을 쉽게 변경할 수 있으므로 객체 형태로 보관하는 방법을 추천합니다.
 
 ```js
-let user = {
+var user = {
   name: "csc",
   age: 25,
 };
@@ -656,12 +656,29 @@ function getBirthYear() {
 
 ---
 
-### 7-2 블록 스코프
+### 7-2 함수 스코프
+
+```js
+var(선언자) test(식별자)
+```
+
+```js
+function sayHello() {
+  const hello = "Hello CSS-Tricks Reader!";
+  console.log("hello", hello);
+}
+
+sayHello(); // 'Hello CSS-Tricks Reader!'
+console.log(hello); // Error, hello is not defined
+```
+
+---
+
+### 7-3 블록 스코프
 
 let 과 const 는 식별자를 블록 스코프에서 선언하고 그 블록의 스코프에서만 사용 가능한 식별자를 의미합니다.
 
 ```js
-var(선언자) test(식별자)
 let(선언자) test(식별자)
 const(선언자) test(식별자)
 ```
@@ -689,7 +706,19 @@ console.log(x);
   console.log("inside block2");
   console.log(x);
 }
+console.log(x);
 ```
+
+지역 변수에는 두가지 종류가 있다.
+
+- 함수 스코프 지역 변수
+- 블록 스코프 지역 변수
+
+함수 스코프란, 말그대로 변수가 함수 단위로 취급된다는걸 의미한다.
+
+블록 스코프란, 말그대로 변수가 블록 단위로 취급된다는걸 의미한다.
+
+블록 스코프는 함수 스코프에 부분집합이다. 왜냐면 함수는 블록으로 감싸야하기 떄문이다.
 
 - 중첩 스코프의 경우
 
@@ -705,8 +734,26 @@ console.log(x);
 }
 ```
 
+렉시컬 스코프 : https://poiemaweb.com/js-scope
+
+https://velog.io/@keis2957/%ED%95%A8%EC%88%98-%EC%8A%A4%EC%BD%94%ED%94%84
+
+arguments 객체 설명 및 활용 : https://boycoding.tistory.com/21
+
+```js
+function add(x, y) {
+  // arguments 객체 출력
+  console.dir(arguments);
+  return x + y;
+}
+console.log(add(1)); // NaN
+console.log(add(1, 2)); // 3
+console.log(add(1, 2, 3)); // 3
+```
+
 ---
 
-### 7-3 클로저
+### 7-4 클로저
 
 https://poiemaweb.com/js-closure
+https://hyunseob.github.io/2016/08/30/javascript-closure/
