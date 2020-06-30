@@ -216,3 +216,74 @@ arr.find((o) => o.id === 5);
 ---
 
 ### 8-5 map과 filter
+
+- map (사본 반환) : 배열의 요소를 변형합니다.
+
+```js
+arr = [
+  { id: 5, name: 'Judith' },
+  { id: 6, name: 'Fracis' },
+];
+let name = arr.map((x) => x.name);
+let id = arr.map((x) => x.id);
+```
+
+```js
+let items = ['book1', 'book2', 'book3'];
+let prices = [1000, 2000, 3000];
+let cart = items.map((x, i) => ({ name: x, price: prices[i] }));
+```
+
+- filter (사본 반환) : 조건에 해당되는 요소들만 반환합니다.
+
+```js
+const words = [
+  'spray',
+  'limit',
+  'elite',
+  'exuberant',
+  'destruction',
+  'present',
+];
+
+const result = words.filter((w) => w.length > 6);
+
+console.log(result);
+```
+
+---
+
+### 8-6 reduce
+
+```js
+const oneTwoThree = [1, 2, 3];
+// 누적값, 현잿값, 인덱스
+result = oneTwoThree.reduce((acc, cur, i) => {
+  console.log(acc, cur, i);
+  return acc + cur;
+}, 0);
+result;
+```
+
+<a href="https://medium.com/@hongkevin/js-3-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%B0%B0%EC%97%B4-%EB%A9%94%EC%84%9C%EB%93%9C-reduce-100-%ED%99%9C%EC%9A%A9%EB%B2%95-feat-egghead-io-97c679857ece">reduce의 활용</a>
+
+---
+
+### 8-7 join
+
+- join (사본 반환):
+  - 매개변수로 문자열 요소들을 합칠 때 사용합니다.
+  - 매개변수가 생략되었을 경우 쉼표가 기본값 입니다.
+  - 문자열 요소를 합칠 때 정의되지 않은 요소, 삭제된 요소, null, undefined 는 모두 빈 문자열로 취급합니다.
+
+```js
+arr = [1, null, 'hello', 'world', true, undefined];
+delete arr[3];
+arr.join();
+arr.join('');
+arr.join('--');
+```
+
+---
+
+## 9장 객체와 객체지향 프로그래밍
