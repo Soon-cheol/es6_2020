@@ -12,7 +12,7 @@
 var evens = [2, 4, 6, 8];
 ```
 
-- 배열의 인덱스 ( 객체와의 차이점 )
+- 배열의 인덱스
 
 ```js
 evens[0] = 2;
@@ -287,3 +287,238 @@ arr.join('--');
 ---
 
 ## 9장 객체와 객체지향 프로그래밍
+
+객체와 배열의 차이는 순서(인덱스)의 유무입니다.
+
+---
+
+### 9-1 for...in
+
+객체의 프로퍼티를 나열할 때 사용
+
+```js
+let obj = { a: 1, b: 2, c: 3 };
+for (var p in obj) {
+  console.log('p = ' + p);
+}
+```
+
+---
+
+### 9-2 Object.keys
+
+객체를 배열로 반환
+
+```js
+obj = { a: 1, b: 2, c: 3 };
+
+let objArr = Object.keys(obj);
+objArr = Object.values(obj);
+objArr = Object.entries(obj);
+```
+
+---
+
+### 9-3 객체지향 프로그래밍 (OOP)
+
+ES6 이전 자바스크립트에서 클래스를 함수를 이용해서 만들었습니다.
+
+```js
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+  this._userGears = ['P', 'N', 'R', 'D'];
+  this._userGear = this.userGears[0];
+}
+```
+
+하지만, ES6 부터는 클래스를 만드는 문법이 생겼습니다.
+
+```js
+class Car {
+  constructor() {}
+}
+```
+
+- 인스턴스
+
+```js
+const car1 = new Car();
+//  인스턴스   클래스
+```
+
+- instanceof 연산자
+
+```js
+car1 instanceof Car;
+car1 instanceof Array;
+```
+
+```js
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+    this.userGears = ['P', 'N', 'R', 'D'];
+    this.userGear = this.userGears[0];
+  }
+  shift(gear) {
+    // 메서드
+    console.log(this.userGears.indexOf(gear));
+    if (this.userGears.indexOf(gear) < 0) {
+      // index를 이용해 0보다 작은경우 즉 값이 없을 경우 에러
+      throw new Error(`Invalid gear: ${gear}`);
+    }
+    this.userGear = gear;
+  }
+}
+
+const car1 = new Car('Tesla', 'Model S');
+const car2 = new Car('Mazda', '3i');
+car1.shift('D');
+car2.shift('R');
+```
+
+ES6 에 추가된 class 문법은 새롭게 생긴 타입이 아니라 사용하기 쉽게 만들어진 함수의 단축 문법입니다.
+
+```js
+class Es6Car {}
+function Es5Car() {}
+
+typeof Es6Car;
+typeof Es5Car;
+```
+
+### 9-4 프로토타입
+
+Car `인스턴스에서 사용할 수 있는 shift 메서드는 프로토타입 메서드` 입니다.
+
+프로토타입 메서드는 `Car.prototype.shift` 처럼 표기할 때가 많으며 Array의 for 메서드들도
+
+프로토 타입 메서드입니다. (ex: Array.prototype.forEach)
+
+<br />
+
+모든 함수에는 prototype이라는 특별한 프로퍼티가 있습니다.
+
+일반적인 함수에서는 프로토 타입을 사용할 일이 없지만, 객체 생성자로 동작하는 함수에서는
+
+프로토타입이 상당히 중요합니다.
+
+<br />
+
+함수의 prototype 프로퍼티가 중요해지는 시점은 new 키워드로 새 인스턴스를 만들었을 때 입니다.
+
+new 키워드로 만든 새 객체는 생성자의 prototype 프로퍼티에 접근할 수 있게 됩니다.
+
+객체 인스턴스는 생성자의 prototype 프로퍼티를 `__proto__` 프로퍼티에 저장합니다.
+
+```
+__proto__ 와 같이 언더바 두개로 이루어진 프로퍼티는 자바스크립트의 내부 동작 방식에 영향을 주는
+
+프로퍼티들이므로 자바스크립트를 충분히 이해하기 전에는 수정하지 않는 것을 권합니다.
+```
+
+```js
+Car {make: "Tesla", model: "Model S", userGears: Array(4), userGear: "P"}
+make: "Tesla"
+model: "Model S"
+userGear: "P"
+userGears: (4) ["P", "N", "R", "D"]
+__proto__:
+constructor: class Car
+shift: ƒ shift(gear)
+__proto__: Object
+```
+
+<br />
+
+프로토타입에서 중요한 것은 `동적 디스패치라는 메커니즘`입니다.
+
+여기서 디스패치는 메서드 호출과 같은 의미입니다.
+
+객체의 프로퍼티나 메서드에 접근하려 할 때 그런 프로퍼티나 메서드가 존재하지 않으면 자바스크립트는
+
+객체의 프로토타입에서 해당 프로퍼티나 메서드를 찾습니다.
+
+클래스의 인스턴스는 모두 같은 프로토타입을 공유하므로 프로토타입에 프로퍼티나 메서드가 있다면
+
+해당 클래스의 인스턴스는 모두 그 프로퍼티나 매서드에 접근이 가능합니다.
+
+```js
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+    this.userGears = ['P', 'N', 'R', 'D'];
+    this.userGear = this.userGears[0];
+  }
+  shift(gear) {
+    // 메서드
+    console.log(this.userGears.indexOf(gear));
+    if (this.userGears.indexOf(gear) < 0) {
+      // index를 이용해 0보다 작은경우 즉 값이 없을 경우 에러
+      throw new Error(`Invalid gear: ${gear}`);
+    }
+    this.userGear = gear;
+  }
+}
+
+const car1 = new Car();
+const car2 = new Car();
+
+car1.shift === Car.prototype.shift;
+```
+
+인스턴스에서 메서드나 프로퍼티를 정의하면 프로토타입에 있는 것을 가리는 효과가 있습니다.
+
+위에서 이야기한대로 자바스크립트는 메서드를 호출 시 먼저 인스턴스를 체크하고 없을 경우
+
+프로토타입을 체크하기 때문입니다. `( 프로토타입 체인 )`
+
+```js
+car1.shift = function (gear) {
+  this.userGear = gear.toupperCase();
+};
+car1.shift === Car.prototype.shift;
+```
+
+### 9-5 정적 메서드
+
+정적 메소드 및 속성은 클래스 / 생성자 자체 에 정의되며 인스턴스 객체에는 정의되지 않습니다.
+
+이것들은 `static 키워드`를 사용하여 클래스 정의에 지정됩니다.
+
+```js
+class MyClass {
+  static myStaticMethod() {
+    return 'Hello';
+  }
+
+  static get myStaticProperty() {
+    return 'Goodbye';
+  }
+}
+
+console.log(MyClass.myStaticMethod()); // logs: "Hello"
+console.log(MyClass.myStaticProperty); // logs: "Goodbye"
+```
+
+```js
+const myClassInstance = new MyClass();
+
+console.log(myClassInstance.myStaticProperty); // logs: undefined
+```
+
+### 9-6 상속
+
+`extends` 키워드를 사용해서 만든 클래스는 `서브 클래스` 입니다.
+
+```js
+class MySubClass extends MyClass {}
+
+console.log(MySubClass.myStaticMethod()); // logs: "Hello"
+console.log(MySubClass.myStaticProperty); // logs: "Goodbye"
+```
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/super
