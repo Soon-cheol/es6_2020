@@ -330,6 +330,10 @@ function Car(make, model) {
   this._userGears = ['P', 'N', 'R', 'D'];
   this._userGear = this.userGears[0];
 }
+
+Car.prototype.go = function () {
+  console.log('gogo');
+};
 ```
 
 하지만, ES6 부터는 클래스를 만드는 문법이 생겼습니다.
@@ -388,6 +392,8 @@ function Es5Car() {}
 typeof Es6Car;
 typeof Es5Car;
 ```
+
+---
 
 ### 9-4 프로토타입
 
@@ -483,6 +489,8 @@ car1.shift = function (gear) {
 car1.shift === Car.prototype.shift;
 ```
 
+---
+
 ### 9-5 정적 메서드
 
 정적 메소드 및 속성은 클래스 / 생성자 자체 에 정의되며 인스턴스 객체에는 정의되지 않습니다.
@@ -509,6 +517,8 @@ const myClassInstance = new MyClass();
 
 console.log(myClassInstance.myStaticProperty); // logs: undefined
 ```
+
+---
 
 ### 9-6 상속
 
