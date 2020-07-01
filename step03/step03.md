@@ -26,7 +26,7 @@ evens[3] = 8;
 한 배열의 요소가 모두 같은 타입일 필요가 없습니다.
 
 ```js
-let arr = [1, '2', {}, [4, 5]];
+let arr = [1, "2", {}, [4, 5]];
 ```
 
 - 배열의 길이보다 큰 인덱스를 할당할 경우 자동으로 이전 인덱스들에는 undefined 가 채워집니다.
@@ -65,10 +65,10 @@ console.log([]);
 - shift() : 배열 맨 앞 제거 (원본 수정)
 
 ```js
-arr = ['b', 'c', 'd'];
-arr.push('e');
+arr = ["b", "c", "d"];
+arr.push("e");
 arr.pop();
-arr.unshift('a');
+arr.unshift("a");
 arr.shift();
 ```
 
@@ -79,7 +79,7 @@ arr.shift();
 - concat (사본 반환)
 
 ```js
-let arr2 = arr.concat('e', 'f', 'g');
+let arr2 = arr.concat("e", "f", "g");
 arr;
 ```
 
@@ -144,8 +144,8 @@ arr.copyWithin(0, -3, -1);
 ```js
 arr = new Array(5).fill(1);
 arr.fill(123);
-arr.fill('b', 1);
-arr.fill('c', 2, 4);
+arr.fill("b", 1);
+arr.fill("c", 2, 4);
 arr.fill(5.5, -4);
 arr.fill(0, -3, -1);
 ```
@@ -165,10 +165,10 @@ arr.reverse();
 
 ```js
 arr.sort();
-arr = ['c', 'b', 'a'];
+arr = ["c", "b", "a"];
 arr.sort();
 
-const months = ['March', 'Jan', 'Feb', 'Dec'];
+const months = ["March", "Jan", "Feb", "Dec"];
 months.sort();
 console.log(months);
 
@@ -199,11 +199,11 @@ findIndex: indexOf와 lastIndexOf와 같지만 추가적으로 검색조건을 �
 
 ```js
 arr = [
-  { id: 5, name: 'Judith' },
-  { id: 6, name: 'Fracis' },
+  { id: 5, name: "Judith" },
+  { id: 6, name: "Fracis" },
 ];
 arr.findIndex((o) => o.id === 5);
-arr.findIndex((o) => o.name === 'Fracis');
+arr.findIndex((o) => o.name === "Fracis");
 arr.findIndex((o) => o.id === 3);
 ```
 
@@ -221,15 +221,15 @@ arr.find((o) => o.id === 5);
 
 ```js
 arr = [
-  { id: 5, name: 'Judith' },
-  { id: 6, name: 'Fracis' },
+  { id: 5, name: "Judith" },
+  { id: 6, name: "Fracis" },
 ];
 let name = arr.map((x) => x.name);
 let id = arr.map((x) => x.id);
 ```
 
 ```js
-let items = ['book1', 'book2', 'book3'];
+let items = ["book1", "book2", "book3"];
 let prices = [1000, 2000, 3000];
 let cart = items.map((x, i) => ({ name: x, price: prices[i] }));
 ```
@@ -238,12 +238,12 @@ let cart = items.map((x, i) => ({ name: x, price: prices[i] }));
 
 ```js
 const words = [
-  'spray',
-  'limit',
-  'elite',
-  'exuberant',
-  'destruction',
-  'present',
+  "spray",
+  "limit",
+  "elite",
+  "exuberant",
+  "destruction",
+  "present",
 ];
 
 const result = words.filter((w) => w.length > 6);
@@ -277,11 +277,11 @@ result;
   - 문자열 요소를 합칠 때 정의되지 않은 요소, 삭제된 요소, null, undefined 는 모두 빈 문자열로 취급합니다.
 
 ```js
-arr = [1, null, 'hello', 'world', true, undefined];
+arr = [1, null, "hello", "world", true, undefined];
 delete arr[3];
 arr.join();
-arr.join('');
-arr.join('--');
+arr.join("");
+arr.join("--");
 ```
 
 ---
@@ -299,7 +299,7 @@ arr.join('--');
 ```js
 let obj = { a: 1, b: 2, c: 3 };
 for (var p in obj) {
-  console.log('p = ' + p);
+  console.log("p = " + p);
 }
 ```
 
@@ -321,19 +321,40 @@ objArr = Object.entries(obj);
 
 ### 9-3 객체지향 프로그래밍 (OOP)
 
+객체지향 프로그래밍은 실세계에 존재하고 인지하고 있는 객체(Object)를 소프트웨어의 세계에서 표현하기 위해
+
+객체의 핵심적인 개념 또는 기능만을 추출하는 추상화(abstraction)를 통해 모델링하려는 프로그래밍 패러다임을 말한다.
+
+다시 말해, 우리가 주변의 실세계에서 사물을 인지하는 방식을 프로그래밍에 접목하려는 사상을 의미한다.
+
+객체지향 프로그래밍은 함수들의 집합 혹은 단순한 컴퓨터의 명령어들의 목록이라는 전통적인 절차지향 프로그래밍과는
+
+다른, 관계성있는 객체들의 집합이라는 관점으로 접근하는 소프트웨어 디자인으로 볼 수 있다.
+
+각 객체는 메시지를 받을 수도 있고, 데이터를 처리할 수도 있으며, 또다른 객체에게 메시지를 전달할 수도 있다.
+
+각 객체는 별도의 역할이나 책임을 갖는 작은 독립적인 기계 또는 부품으로 볼 수 있다.
+
+객체지향 프로그래밍은 보다 유연하고 유지보수하기 쉬우며 확장성 측면에서서도 유리한 프로그래밍을 하도록 의도되었고,
+
+대규모 소프트웨어 개발에 널리 사용되고 있다.
+
+---
+
 ES6 이전 자바스크립트에서 클래스를 함수를 이용해서 만들었습니다.
 
 ```js
 function Car(make, model) {
   this.make = make;
   this.model = model;
-  this._userGears = ['P', 'N', 'R', 'D'];
+  this._userGears = ["P", "N", "R", "D"];
   this._userGear = this.userGears[0];
-}
 
-Car.prototype.go = function () {
-  console.log('gogo');
-};
+  // 메소드
+  this.go = function () {
+    console.log("gogo");
+  };
+}
 ```
 
 하지만, ES6 부터는 클래스를 만드는 문법이 생겼습니다.
@@ -363,7 +384,7 @@ class Car {
   constructor(make, model) {
     this.make = make;
     this.model = model;
-    this.userGears = ['P', 'N', 'R', 'D'];
+    this.userGears = ["P", "N", "R", "D"];
     this.userGear = this.userGears[0];
   }
   shift(gear) {
@@ -377,10 +398,10 @@ class Car {
   }
 }
 
-const car1 = new Car('Tesla', 'Model S');
-const car2 = new Car('Mazda', '3i');
-car1.shift('D');
-car2.shift('R');
+const car1 = new Car("Tesla", "Model S");
+const car2 = new Car("Mazda", "3i");
+car1.shift("D");
+car2.shift("R");
 ```
 
 ES6 에 추가된 class 문법은 새롭게 생긴 타입이 아니라 사용하기 쉽게 만들어진 함수의 단축 문법입니다.
@@ -456,7 +477,7 @@ class Car {
   constructor(make, model) {
     this.make = make;
     this.model = model;
-    this.userGears = ['P', 'N', 'R', 'D'];
+    this.userGears = ["P", "N", "R", "D"];
     this.userGear = this.userGears[0];
   }
   shift(gear) {
@@ -500,11 +521,11 @@ car1.shift === Car.prototype.shift;
 ```js
 class MyClass {
   static myStaticMethod() {
-    return 'Hello';
+    return "Hello";
   }
 
   static get myStaticProperty() {
-    return 'Goodbye';
+    return "Goodbye";
   }
 }
 
@@ -531,4 +552,8 @@ console.log(MySubClass.myStaticMethod()); // logs: "Hello"
 console.log(MySubClass.myStaticProperty); // logs: "Goodbye"
 ```
 
-https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/super
+객체 지향과 절차 지향의 차이 : https://brownbears.tistory.com/407 / https://m.blog.naver.com/PostView.nhn?blogId=atalanta16&logNo=220249264429&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+super 키워드: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/super
+
+자바스크립트 객체지향 프로그래밍 : https://poiemaweb.com/js-object-oriented-programming
