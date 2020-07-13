@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-08</title>
+    <style>
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody id="contacts">
+                <tr v-for="contact in contacts">
+                    <td>{{contact.no}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.tel}}</td>
+                    <td>{{contact.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            "pageno": 1,
+            "pagesize": 10,
+            "totalcount": 100,
+            "contacts": [
+                { "no": 100, "name": "설현", "tel": "010-3456-8255", "address": "서울" },
+                { "no": 100, "name": "혜리", "tel": "010-1554-8255", "address": "서울" },
+                { "no": 100, "name": "하니", "tel": "010-5836-8255", "address": "경기" },
+                { "no": 100, "name": "성소", "tel": "010-4617-8255", "address": "수원" },
+                { "no": 100, "name": "지아", "tel": "010-8947-8255", "address": "대전" },
+                { "no": 100, "name": "정연", "tel": "010-4661-8255", "address": "대구" },
+                { "no": 100, "name": "쯔위", "tel": "010-8761-8255", "address": "부산" },
+                { "no": 100, "name": "사나", "tel": "010-8458-8255", "address": "청주" },
+                { "no": 100, "name": "모모", "tel": "010-3798-8255", "address": "인천" },
+                { "no": 100, "name": "소진", "tel": "010-5555-8255", "address": "충주" }
+            ]
+        }
+
+        var list = new Vue({
+            el: "#example",
+            data: model
+        });
+    </script>
+</body>
+
+</html>

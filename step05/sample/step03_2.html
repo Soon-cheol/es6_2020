@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue-project</title>
+    <script src=" https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        x: <input type="text" v-model="x" /><br />
+        y: <input type="text" v-model="y" /><br />
+        덧셈결과 : {{sum}}
+    </div>
+    <script type="text/javascript">
+
+        var vm = new Vue({
+            el: "#example",
+            data: { x: 0, y: 0, sum: 0 },
+            watch: {
+                //watch 속성의 이름과 해당속성이 변경되었을때 호출되는 함수
+                // 긴시간이 필요한 비동기 처리가 필요할때는 유용
+                x: function (v) {
+                    console.log("## x 변경");
+                    var result = Number(v) + Number(this.y);
+                    if (isNaN(result)) this.sum = 0;
+                    else this.sum = result;
+                },
+                y: function (v) {
+                    console.log("## y 변경");
+                    this.y = v;
+                    var result = Number(this.x) + Number(v);
+                    if (isNaN(result)) this.sum = 0;
+                    else this.sum = result;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>hello vue.js</title>
+    <script src="http://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="simple">
+        <span v-show="num">렌더링2</span>
+        <!-- <span v-if="num === 0">렌더링0</span>
+        <span v-else="num === 1">렌더링1</span> -->
+    </div>
+    <script type="text/javascript">
+        var twoway = new Vue({
+            el: '#simple',
+            data: {
+                num: 0
+            }
+        })
+        // twoway.name 콘솔 확인
+    </script>
+</body>
+
+</html>
