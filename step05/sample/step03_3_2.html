@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>webpos-do</title>
+
+</head>
+<style>
+    body {
+        font-family: "Malgun Gothic", "맑은 고딕", serif;
+    }
+
+    #app {
+        text-align: center;
+        margin: 60px;
+        max-width: 400px;
+        margin: 0 auto;
+        display: table;
+    }
+
+    .num {
+        color: #AF007E;
+    }
+
+    button {
+        font-family: 'Bitter';
+        background: #c62735;
+        color: white;
+        border: 0;
+        padding: 5px 15px;
+        margin: 0 10px;
+        border-radius: 4px;
+        outline: 0;
+        cursor: pointer;
+    }
+
+    h4 {
+        margin: 0 0 15px;
+    }
+
+    hr {
+        border-color: #F2FAFF;
+        opacity: 0.5;
+        margin: 15px 0;
+    }
+</style>
+
+<body>
+
+    <div id="app">
+        <h2>Vue.js 라이프사이클 샘플 예제</h2>
+        <h3>개발자 Console 확인</h3>
+        <button @click="toggleShow">
+            <span v-if="isShowing">Hide child</span>
+            <span v-else>Show child</span>
+        </button>
+        <hr>
+        <div v-if="isShowing">
+            <app-child></app-child>
+        </div>
+
+        <div id="childarea" style="display:none">
+            <h4>Compoent Create!</h4>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        const Child = {
+            template: '#childarea',
+            beforeCreate() {
+                console.log("beforeCreate!");
+            },
+            created() {
+                console.log("created!");
+            },
+            beforeMount() {
+                console.log("beforeMount!");
+            },
+            mounted() {
+                console.log("mounted!");
+            },
+            beforeDestroy() {
+                console.log("beforeDestroy!");
+            },
+            destroyed() {
+                console.log("destroyed!");
+            }
+        };
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    isShowing: false
+                }
+            },
+            methods: {
+                toggleShow() {
+                    this.isShowing = !this.isShowing;
+                }
+            },
+            components: {
+                appChild: Child
+            }
+        });
+
+    </script>
+</body>
+
+</html>
