@@ -49,3 +49,15 @@ git clone https://github.com/Soon-cheol/es6_2020.git
 - 16장 Math
 - 17장 정규표현식
 - 19장 Ajax
+
+---
+
+5주차
+
+- Vue 기초
+
+---
+
+6주차
+
+- Vue CLI / NUXT
