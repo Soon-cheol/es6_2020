@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/*-------------------------------------------------
+Author : 최순철
+Create date : 2019-08-20
+-------------------------------------------------*/
+body {
+  width: 100%;
+  text-align: center;
+  background: #212529;
+  color: #fff;
+}
+
+body #app {
+  text-align: center;
+}
+
+body #app .matching-result {
+  position: fixed;
+  display: table;
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  color: #fff;
+  z-index: 1000;
+}
+
+body #app .matching-result div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+body #app ul {
+  overflow: hidden;
+  width: 1400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+body #app ul li {
+  position: relative;
+  float: left;
+  width: 280px;
+  height: 200px;
+}
+
+body #app ul li > div {
+  width: 100%;
+  height: 100%;
+}
+
+body #app ul li .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+body #app ul li .card {
+  border: 1px solid #4c4c4c;
+  font-size: 38px;
+  line-height: 200px;
+  cursor: pointer;
+}
+
+body #app ul li .card.rotate90 > span {
+  -webkit-transform: rotateY(90deg);
+  -webkit-transition: -webkit-transform .2s;
+}
+
+body #app ul li .card.rotate90 + .mask {
+  display: none;
+}
+
+body #app ul li .card.rotate0 > span, body #app ul li .card.complate > span {
+  -webkit-transform: rotateY(0deg);
+  -webkit-transition: -webkit-transform .2s;
+}
+
+body #app ul li .card span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  color: #333;
+}
+
+body #app ul li .card span.card1 {
+  color: #ffbc84;
+}
+
+body #app ul li .card span.card2 {
+  color: #a1f6ff;
+}
+
+body #app ul li .card span.card3 {
+  color: #f5ff6f;
+}
+
+body #app ul li .card span.card4 {
+  color: #00edb4;
+}
+
+body #app ul li .card span.card5 {
+  color: #e900ed;
+}
+
+body #app ul li .card span.card6 {
+  color: #9d00ed;
+}
+
+body #app ul li .card span.card7 {
+  color: #ffbc00;
+}
+
+body #app ul li .card span.card8 {
+  color: #8945ff;
+}
+
+body #app ul li .card span.card9 {
+  color: #72ff97;
+}
+
+body #app ul li .card span.card10 {
+  color: #ff7b7b;
+}

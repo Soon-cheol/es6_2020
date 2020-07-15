@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nextTick</title>
+  </head>
+  <body>
+    <div id="app">
+      <p ref="txt">{{txt}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            txt: "11111",
+          };
+        },
+        created: function () {
+          console.log("created", this.$refs.txt);
+          this.$nextTick(function () {
+            console.log("nextTick", this.$refs.txt);
+          });
+        },
+        // beforeMount: function () {
+        //   console.log("beforeMount");
+        // },
+        // mounted: function () {
+        //   console.log("mounted");
+        // },
+        methods: {
+          toggleShow() {
+            this.isShowing = !this.isShowing;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

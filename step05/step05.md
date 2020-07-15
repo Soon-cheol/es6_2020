@@ -49,11 +49,9 @@
 
 데이터(모델)가 변경 -> 뷰 모델 객체 -> HTML(View) 순으로 화면에 변경사항이 반영됩니다.
 
-```js
-{
-  {
-  }
-} // 템플릿 표현식 = 보간법 = 콧수염 표현식
+```html
+<p>{{ value }}</p>
+<!-- 템플릿 표현식 = 보간법 = 콧수염 표현식 -->
 ```
 
 ---
@@ -123,7 +121,7 @@ computed;
 
 Vue 인스턴스를 생성할 때 전달하는 속성들을 담은 객체를 옵션 객체라고 부릅니다.
 
-```
+```js
 el: '#simple',
 data: model,
 computed: {
@@ -216,24 +214,35 @@ sudo npm install -g @vue/cli (Mac)
 
 ### CLI 서비스 : @vue/cli-service
 
-CLI서비스는 프로젝트가 생성될 때 개발 의존성으로 설치되는 구성요소입니다. CLI서비스의 내부는 웹팩(webpck)과 웹팩 개발 서버(webpack-dev-server)기반
-으로 작성되어 있습니다. CLI서비스를 이용해 수행할 수 있는 기능은 다음과 같습니다. 
+CLI서비스는 프로젝트가 생성될 때 개발 의존성으로 설치되는 구성요소입니다.
 
+CLI서비스의 내부는 웹팩(webpck)과 웹팩 개발 서버(webpack-dev-server)기반으로 작성되어 있습니다.
+
+CLI서비스를 이용해 수행할 수 있는 기능은 다음과 같습니다.
+
+```
 - 프로젝트를 웹팩 개발 서버 기반으로 구동할 수 있음
 
 - 프로젝트 소스코드와 리소스를 빌드하고 번들링할 수 있음
 
 - 프로젝트의 코드를 테스트할 수 있음
+```
 
 ---
 
 ### CLI 플러그인
 
-CLI플러그인은 Vue CLI로 생성된 프로젝트 추가적인 기능을 제공하는 npm 패키지입니다. CLI 도구를 이용해 프로젝트를 생성할 대 추가할 플러그인을 선택할
-수 있으며, 프로젝트가 생성된 이후에도 vue add 명령어를 이요해 플러그인을 추가할 수 있습니다. 또한 CLI 플러그인은 기본적으로 제공되는 것도 있지만 
-누구나가 플러그인을 만들어서 제공 할 수 있습니다. 
+CLI플러그인은 Vue CLI로 생성된 프로젝트 추가적인 기능을 제공하는 npm 패키지입니다.
 
-대표적인 플러그인 
+CLI 도구를 이용해 프로젝트를 생성할 대 추가할 플러그인을 선택할 수 있으며, 프로젝트가 생성된
+
+이후에도 vue add 명령어를 이요해 플러그인을 추가할 수 있습니다. 또한 CLI 플러그인은 기본적으로 제공되는 것도 있지만
+
+누구나가 플러그인을 만들어서 제공 할 수 있습니다.
+
+대표적인 플러그인
+
+```
 - router : 애플리케이션에 라우팅 기능을 제고하는 vue-router 패키지와 예제 코드를 프로젝트에 설치합니다.
 
 - vuex : 애플리케이션에 상태관리 기능을 제고하는 vuex 패키지와 예제 코드를 프로젝트 설치합니다.
@@ -245,7 +254,44 @@ CLI플러그인은 Vue CLI로 생성된 프로젝트 추가적인 기능을 제�
 - @vue/cli-plugin-unit-jest : jest 프레임워크를 이용한 단위테스트를 수행할 수 있는 기능을 제공합니다.
 
 - vue-cli-plugin-vuetify : vue.js 애플리케이션에 머티리얼 (Material) 디자인이 적용된 컴포넌트를 사용할 수 있도록 하는 프레임워크인 vuetify를 프로젝트에 적용할 수 있는 기능을 제공합니다.
+```
 
 ```js
 vue create test
 ```
+
+Vue CLI의 내부는 웹팩(Webpack)이라는 모듈 번들러 도구를 이용하도록 만들어져 있습니다.
+
+하지만 CLI 서비스는 모두 캡슐화 되어 있기 떄문에 내부의 웹팩에 대해 웹팩 설정 파일을 이용해 직접 설정은 불가능하고
+
+vue.config.js 를 이용해서 설정합니다.
+
+https://cli.vuejs.org/config/#transpiledependencies
+
+publicPath 설정 : https://kabkee.github.io/vue-cli/vue-cli-publicPath/
+
+SCSS 설정 : https://medium.com/@seolahkim.asia/vue-cli%EC%97%90%EC%84%9C-scss-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-bd1137168be
+
+---
+
+### EventBus
+
+---
+
+### Props
+
+---
+
+### nextTick
+
+nextTick으로 감싼뒤 callback을 통해 DOM을 조작하게 되면
+
+Vue.js에서 데이터갱신 후 UI까지 완료한 뒤에 nextTick에 있는 함수를 최종적으로 수행하게 된다.
+
+https://backback.tistory.com/382
+
+---
+
+### CLI 와 NUXT 차이
+
+https://velog.io/@bluestragglr/Nuxt.js-vs-Vue.js-SSR-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0

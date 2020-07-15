@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+/*-------------------------------------------------
+Author : 최순철
+Create date : 2019-08-20
+-------------------------------------------------*/
+
+@import "./position";
+body {
+    width: 100%;
+    text-align: center;
+    background: #3a3a3a;
+    color: #fff;
+    #app {
+        display: table;
+        width: 1280px;
+        margin: 0 auto;
+        #nav {
+            a {
+                &.router-link-active {
+                    button {
+                        color: #fff;
+                    }
+                }
+                button {
+                    padding: 14px 20px;
+                    font-size: 16px;
+                    color: #616161;
+                }
+            }
+        }
+        #content {
+            &>div {
+                display: table-cell;
+            }
+        }
+        .infomation {
+            width: 730px;
+            padding: 20px 60px 20px 20px;
+            background: #5a5a5a;
+            text-align: left;
+            li {
+                &.name {
+                    font-size: 30px
+                }
+            }
+        }
+        .ground {
+            position: relative;
+            width: 550px;
+            height: 917px;
+            background: url('/src/assets/images/bg_ground.jpg') no-repeat 0 0;
+            background-size: 100%;
+            .player {
+                position: absolute;
+                cursor: pointer;
+                svg {
+                    width: 90px;
+                    height: 90px;
+                    g {
+                        fill: #fff
+                    }
+                }
+                &>span {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    color: #000
+                }
+                .name {
+                    top: 16px;
+                }
+                .number {
+                    top: 30px;
+                    font-size: 36px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

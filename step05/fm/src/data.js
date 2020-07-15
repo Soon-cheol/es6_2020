@@ -1,0 +1,273 @@
+const playerlist = {
+    // Germany : Start
+    "Germany": [{
+            number: 8,
+            name: 'Mesut Ozil',
+            uname: 'Ozil',
+            nation: 'germany',
+            team: '아스날 FC',
+            position: 'MF 미드필더',
+            age: 32,
+            height: '180cm',
+            weight: '76kg',
+            foot: '왼발'
+        },
+        {
+            number: 11,
+            name: 'Miroslav Klose',
+            uname: 'Klose',
+            nation: 'germany',
+            team: '-',
+            position: 'FW 공격수',
+            age: 42,
+            height: '182cm',
+            weight: '81kg',
+            foot: '오른발'
+        },
+        {
+            number: 13,
+            name: 'Thomas Muller',
+            uname: 'Muller',
+            nation: 'germany',
+            team: 'FC 바이에른 뮌헨',
+            position: 'FW 공격수',
+            age: 31,
+            height: '186cm',
+            weight: '75kg',
+            foot: '오른발'
+        },
+        {
+            number: 6,
+            name: 'Sami Khedira',
+            uname: 'Khedira',
+            nation: 'germany',
+            team: '유벤투스 FC',
+            position: 'MF 미드필더',
+            age: 33,
+            height: '189cm',
+            weight: '90kg',
+            foot: '오른발'
+        },
+        {
+            number: 18,
+            name: 'Toni Kroos',
+            uname: 'Kroos',
+            nation: 'germany',
+            team: '레알 마드리드',
+            position: 'MF 미드필더',
+            age: 30,
+            height: '183cm',
+            weight: '76kg',
+            foot: '양발'
+        },
+        {
+            number: 7,
+            name: 'Bastian Schweinsteiger',
+            uname: 'Schweinsteiger',
+            nation: 'germany',
+            team: '시카고 파이어',
+            position: 'MF 미드필더',
+            age: 36,
+            height: '183cm',
+            weight: '79kg',
+            foot: '오른발'
+        },
+        {
+            number: 4,
+            name: 'Benedikt Howedes',
+            uname: 'Howedes',
+            nation: 'germany',
+            team: 'FC 로코모티브 모스크바',
+            position: 'CB 수비수',
+            age: 32,
+            height: '188cm',
+            weight: '77kg',
+            foot: '오른발'
+        },
+        {
+            number: 5,
+            name: 'Mats Hummels',
+            uname: 'Hummels',
+            nation: 'germany',
+            team: '보루시아 도르트문트',
+            position: 'CB 수비수',
+            age: 32,
+            height: '191cm',
+            weight: '92kg',
+            foot: '오른발'
+        },
+        {
+            number: 20,
+            name: 'Jerome Boateng',
+            uname: 'Boateng',
+            nation: 'germany',
+            team: 'FC 바이에른 뮌헨',
+            position: 'CB 수비수',
+            age: 32,
+            height: '192cm',
+            weight: '90kg',
+            foot: '오른발'
+        },
+        {
+            number: 16,
+            name: 'Philipp Lahm',
+            uname: 'Lahm',
+            nation: 'germany',
+            team: '-',
+            position: 'CB 수비수',
+            age: 37,
+            height: '170cm',
+            weight: '66kg',
+            foot: '오른발'
+        },
+        {
+            number: 1,
+            name: 'Manuel Neuer',
+            uname: 'Neuer',
+            nation: 'germany',
+            team: 'FC 바이에른 뮌헨',
+            position: 'GK 골키퍼',
+            age: 34,
+            height: '193cm',
+            weight: '92kg',
+            foot: '오른발'
+        }
+    ],
+    // Germany : End
+    // France : Start
+    "France": [{
+            number: 11,
+            name: '그리즈만',
+            uname: '그리즈만',
+            nation: 'france',
+            team: '아스날 FC',
+            position: 'MF 미드필더',
+            age: 32,
+            height: '180cm',
+            weight: '76kg',
+            foot: '왼발'
+        },
+        {
+            number: 10,
+            name: '벤제마',
+            uname: '벤제마',
+            nation: 'france',
+            team: '-',
+            position: 'FW 공격수',
+            age: 42,
+            height: '182cm',
+            weight: '81kg',
+            foot: '오른발'
+        },
+        {
+            number: 8,
+            name: '발부에나',
+            uname: '발부에나',
+            nation: 'france',
+            team: 'FC 바이에른 뮌헨',
+            position: 'FW 공격수',
+            age: 31,
+            height: '186cm',
+            weight: '75kg',
+            foot: '오른발'
+        },
+        {
+            number: 6,
+            name: '카바예',
+            uname: '카바예',
+            nation: 'france',
+            team: '유벤투스 FC',
+            position: 'MF 미드필더',
+            age: 33,
+            height: '189cm',
+            weight: '90kg',
+            foot: '오른발'
+        },
+        {
+            number: 14,
+            name: '마투이디',
+            uname: '마투이디',
+            nation: 'france',
+            team: '레알 마드리드',
+            position: 'MF 미드필더',
+            age: 30,
+            height: '183cm',
+            weight: '76kg',
+            foot: '양발'
+        },
+        {
+            number: 19,
+            name: '포그바',
+            uname: '포그바',
+            nation: 'france',
+            team: '시카고 파이어',
+            position: 'MF 미드필더',
+            age: 36,
+            height: '183cm',
+            weight: '79kg',
+            foot: '오른발'
+        },
+        {
+            number: 3,
+            name: '에브라',
+            uname: '에브라',
+            nation: 'france',
+            team: 'FC 로코모티브 모스크바',
+            position: 'CB 수비수',
+            age: 32,
+            height: '188cm',
+            weight: '77kg',
+            foot: '오른발'
+        },
+        {
+            number: 4,
+            name: '바란',
+            uname: '바란',
+            nation: 'france',
+            team: '보루시아 도르트문트',
+            position: 'CB 수비수',
+            age: 32,
+            height: '191cm',
+            weight: '92kg',
+            foot: '오른발'
+        },
+        {
+            number: 21,
+            name: '코시엘니',
+            uname: '코시엘니',
+            nation: 'france',
+            team: 'FC 바이에른 뮌헨',
+            position: 'CB 수비수',
+            age: 32,
+            height: '192cm',
+            weight: '90kg',
+            foot: '오른발'
+        },
+        {
+            number: 15,
+            name: '사그나',
+            uname: '사그나',
+            nation: 'france',
+            team: '-',
+            position: 'CB 수비수',
+            age: 37,
+            height: '170cm',
+            weight: '66kg',
+            foot: '오른발'
+        },
+        {
+            number: 1,
+            name: '요리스',
+            uname: '요리스',
+            nation: 'france',
+            team: 'FC 바이에른 뮌헨',
+            position: 'GK 골키퍼',
+            age: 34,
+            height: '193cm',
+            weight: '92kg',
+            foot: '오른발'
+        }
+    ],
+    // France : End
+}
+export default playerlist;

@@ -1,0 +1,59 @@
+@import "./mixin";
+.ground {
+    // 2019-08-21 : scss Map 함수 써보려 했으나 실패
+    // $position433: (
+    //   'position' : (
+    //     'top': (120px, 120px, 120px, 420px, 420px, 420px, 690px, 690px, 690px, 690px, 797px),
+    //     'left': (70px, 228px, 390px, 70px, 235px, 390px, 30px, 160px, 300px, 430px, 228px)
+    //   )
+    // );
+    // @each $top in map-get(map-get($position433, 'position'), 'top'){
+    //   $index: index(map-get(map-get($position433, 'position'), 'top'), $top);
+    //   .player:nth-child(#{$index}){
+    //     top: $top;
+    //   };
+    // }
+    // @each $left in map-get(map-get($position433, 'position'), 'left'){
+    //   $index: index(map-get(map-get($position433, 'position'), 'left'), $left);
+    //   .player:nth-child(#{$index}){
+    //     left: $left;
+    //   }
+    // }
+    // position433 : Start
+    &.position433 {
+        .player:nth-child(1) {
+            @include positionLocation(120px, 70px)
+        }
+        .player:nth-child(2) {
+            @include positionLocation(120px, 228px)
+        }
+        .player:nth-child(3) {
+            @include positionLocation(120px, 390px)
+        }
+        .player:nth-child(4) {
+            @include positionLocation(420px, 70px)
+        }
+        .player:nth-child(5) {
+            @include positionLocation(420px, 235px)
+        }
+        .player:nth-child(6) {
+            @include positionLocation(420px, 390px)
+        }
+        .player:nth-child(7) {
+            @include positionLocation(690px, 30px)
+        }
+        .player:nth-child(8) {
+            @include positionLocation(690px, 160px)
+        }
+        .player:nth-child(9) {
+            @include positionLocation(690px, 300px)
+        }
+        .player:nth-child(10) {
+            @include positionLocation(690px, 430px)
+        }
+        .player:nth-child(11) {
+            @include positionLocation(798px, 228px)
+        }
+    }
+    // position433 : End
+}
